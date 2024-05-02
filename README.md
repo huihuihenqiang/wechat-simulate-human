@@ -1,7 +1,7 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
 
-## 中文介绍
+## 中文介绍 
 ## 🎨 项目背景与简介
 
 
@@ -37,10 +37,10 @@ This is a chatgpt-on-wechat based project to make wechat replies more human-like
 
 - 如果你使用了LinkAI,你还可以将自己的聊天记录做成训练样本导入进去(可选)：
 
-  首先下载WeChatMsg的软件，然后将数据制作成
+  首先下载WeChatMsg的软件，然后将数据制作成template.csv的形式导入到LINkAi中的知识库中，这可能会使得你得机器人更像你本人，包括你的语言习惯什么的。
+  ![图片](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/00a3427f-a530-4b08-b742-0cd39aaff6ab)
 
-
-- 最终的结果展示：
+- **最终的结果展示**：
 
 ![图片](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/daf21818-2404-4c34-9341-43aeff68a14d)
 
@@ -55,16 +55,59 @@ This is a chatgpt-on-wechat based project to make wechat replies more human-like
 ## 🎭 致谢与彩蛋
 
 
-最后，别忘了探索我们的隐藏彩蛋——一个精心设计的复活节彩蛋，等待着有缘人在源码深处发现它。找到后，记得在Issues中分享你的喜悦哦！
+最后，别忘了探索我们的隐藏彩蛋，等待着有缘人在源码深处发现它。找到后，记得在Issues中分享你的喜悦哦！
 
 
 ---
 
 
 ## 🇺🇸 English Introduction
+## 🎨 Project Background and Overview
+
+In this open-source world where we all stand on the shoulders of giants, `wechat-simulate-human` pays a heartfelt tribute to and embarks on an innovative journey inspired by [[chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)]. Building upon its foundation, I've enhanced the WeChat responses to be more human-like with three subtle improvements, making this toolbox shine even brighter! The primary inspiration stems from [[issues](https://github.com/zhayujie/chatgpt-on-wechat/issues/1078)] and the contributions from all participants and the author, @[[Namarimizu](https://github.com/Namarimizu)]. This project's functionalities are implemented for local deployment; adaptations for other deployment methods are left to individual users.
+
+## ✨ New Features
+
+- 🌈 **Simulated Human-like Replies on WeChat**: Unlike automated bulk replies, messages are sent sentence by sentence, mimicking human behavior.
+
+- 🔧 **Extended Response Times, Emojis, and Stickers**: To enhance realism, responses include emojis and stickers, with reply times adjusted based on message length.
+
+- 📊 **Training Method for Emotional Chatbots using Chat Logs**: Leveraging another open-source project, [[WeChatMsg](https://github.com/LC044/WeChatMsg)], to gather chat data for model training with LinkAI.
+
+## 🛠️ How to Use
+
+1. Clone the original repository: `git clone https://github.com/zhayujie/chatgpt-on-wechat.git`, then follow the guide from the original repository to set up the project, preferably locally with LinkAI for large models.
+2. Ensure you can run [[chatgpt-on-wechat](https://github.com/zhayujie/chatgpt-on-wechat)] locally, as depicted below, successfully generating lengthy text responses.
+
+   ![Image](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/1b91d75e-fafe-4b07-82de-1174e49d7e97)
+
+3. Replace your local `\channel\wechat_channel.py` with the `wechat_channel.py` from this project.
+4. Add our project's `\resources\stickers\` directory to your local root folder, as shown:
+
+   ![Image](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/04fcbd0b-04bc-4d47-ac0c-0bf530d155bd)
+
+5. Append to your prompt:
+
+   Speak with WeChat emojis or emoticons, not every sentence, sometimes included, sometimes not, with emojis being more frequent. Your response format is `Language + %Emotion%,` e.g., "I'm happy %joyful%". Stick to these ten emotions; avoid synonyms; use these exact ten words. If other emotions arise, respond directly without the format. The language is what you want to say, unaltered. `%Emotion%` denotes the emotion during conversation, enclosed in %, limited to these ten: `%Speechless%, %Surprised%, %Sad%, %Joyful%, %Puzzled%, %Comforting%, %Shy%, %Worried%, %Love%, %Care%`. If none fit, omit %Emotion%. For voice replies, exclude %Emotion%. Adhere strictly to this format. Only use these ten `%Emotions%;` if none apply, disregard the format. Remember, you can embellish your responses with emojis. Exclude "「」" when speaking; keep it clean. Limit to these ten emotions; no synonyms; if other emotions arise, respond directly. Emojis are generated before and after commas.
+
+6. Optionally, if using LinkAI, you can turn your chat history into training samples:
+
+   Download WeChatMsg, convert data into a `template.csv` format, and import it into LINkAI's knowledge base. This may personalize your bot to mirror your language habits.
+   
+   ![Image](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/00a3427f-a530-4b08-b742-0cd39aaff6ab)
+
+7. **Final Showcase**:
+
+   ![Image](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/daf21818-2404-4c34-9341-43aeff68a14d)
+
+## 🤝 Contribution Guide
+
+We warmly welcome contributions of any kind! Whether it's submitting bug reports, suggesting new features, or directly contributing code, your efforts will help refine this project. Ideally, transforming this into a plugin would be great, but due to limitations in my capacity and energy, I invite everyone to participate.
+
+## 🎭 Acknowledgments and Easter Eggs
+
+Lastly, don't forget to explore our hidden easter eggs, awaiting discovery by the discerning in the depths of our source code. Share your excitement in the Issues section once found!
+
+---
 
 
-Dive into the exciting enhancements of `Enhanced Feature Factory`, built upon the shoulders of the [original project link], refining its core strengths and introducing game-changing features that elevate the open-source experience.
-
-
-[... Continue with the English version of the content ...]
