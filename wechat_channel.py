@@ -249,8 +249,8 @@ class WechatChannel(ChatChannel):
 
             reply.content = reply.content.replace("\n", "").replace("\r", "").strip()  # 清除大段文字中 GPT 式的换行和空行
             # 分割標點符號
-            split_punc = ['。', '？', '！', '!', '?', '）', '+', '~']
-            rm_punc = ['。']
+            split_punc = ['。', '？', '！', '!', '?', '）', '+']
+            rm_punc = ['。','~']
             pattern = "(?<=[" + re.escape(''.join(split_punc)) + "])(?![？！（])"  # 在？！（之前不切分
             split_messages = re.split(pattern, reply.content)
 
@@ -266,7 +266,7 @@ class WechatChannel(ChatChannel):
                         break
                     else:
                         mood = False
-                if msg != "" or msg != "+":
+                if msg != "" and msg != "+":
                     # 这里能不能根据消息的长度控制停顿的时间，如果消息长度比较长就停顿时间比较长，长度比较短就回复的快
                     # 计算消息的长度，然后根据长度设置停顿时间
                     # 面向结果编程,让他更加像人
