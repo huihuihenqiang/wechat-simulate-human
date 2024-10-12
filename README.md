@@ -1,6 +1,26 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
+## 更新2024.10 
+使用多模式人工智能构建一个用于查询视频内容的交互式系统（MM-RAG）。创建一个复杂的问答系统，它可以处理、理解视频并与视频交互.流程如下：
+从视频中提取帧和转录(情况一：视频里面有字幕VTT)，使用Whisper模型生成转录（情况二：视频里面没有字幕但是有声音），并使用大视觉语言模型(LVLMs)创建字幕（视频里面只有画面）。
+使用BridgeTower进行多模态嵌入：为图像标题对创建联合嵌入，生成512维度的向量，测量相似性（cosin），并可视化高维嵌入(UMAP)
+构建多模态向量数据库:使用LanceDB和LangChain实现多模态检索，对多模态数据进行相似性搜索，将构建好的数据输入到lancedb中，可实现快捷查找。
+利用大型视觉语言模型（lvlm）：LLaVA，并实现图像字幕、视觉问题回答和多回合对话，将上一个步骤中查询出来的(图像+问题+字幕)都当作输入给llava,回答问题。
 ![图片](https://github.com/user-attachments/assets/b240ab27-6729-46a1-9909-e7a5e55ab809)
+```python
+from gradio_utils import get_demo
+#You will need to restart the kernel each time you rerun this cell;
+#otherwise, the port will not be available.
+
+debug = False # change this to True if you want to debug
+
+demo = get_demo()
+demo.launch(server_name="0.0.0.0", server_port=9999, debug=debug)
+```
+** 效果 **：
+![图片](https://github.com/user-attachments/assets/aa9bf5a0-fdde-414a-9d41-575c5b01882d)
+注：这个会后期加入到聊天回复项目中。
+
 
 ## 更新2024.10 🤖 Chatbot Fine-Tuning with LoRA
 ## 📊 数据准备
