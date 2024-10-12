@@ -1,5 +1,7 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
+![图片](https://github.com/user-attachments/assets/b240ab27-6729-46a1-9909-e7a5e55ab809)
+
 ## 更新2024.10 🤖 Chatbot Fine-Tuning with LoRA
 ## 📊 数据准备
 
