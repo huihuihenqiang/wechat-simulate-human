@@ -1,6 +1,66 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
+## 更新2024.10 🤖 Chatbot Fine-Tuning with LoRA
+## 📊 数据准备
 
+首先，我们需要准备聊天记录数据。数据以**问答对**的形式组织，如下所示：
+
+```json
+[
+  {"question": "你的名字是什么？", "answer": "我叫小助手。"},
+  {"question": "今天天气怎么样？", "answer": "今天阳光明媚。"}
+]
+```
+在训练之前，我们需要将原始数据进行 Tokenization（将文本转换为模型可理解的数字形式）。GPT 模型需要将每个句子分解为词汇或词片段，最终生成对应的 token ids 作为输入。
+```python
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+
+def tokenize_function(data):
+    return tokenizer(data["question"], data["answer"], truncation=True, padding="max_length")
+
+tokenized_dataset = dataset.map(tokenize_function)
+```
+接下来是 LoRA 微调。LoRA 可以让我们在不改变整个 GPT 模型的情况下，只针对特定层进行微调，从而节省计算资源。训练过程包括以下步骤：
+设置模型参数：加载预训练的 GPT (GPT-2)模型并应用 LoRA。
+配置训练参数：指定训练步数、学习率、批次大小等超参数。
+```python
+from transformers import GPT2LMHeadModel, Trainer, TrainingArguments
+from peft import LoraConfig, get_peft_model
+
+model = GPT2LMHeadModel.from_pretrained("gpt2")
+config = LoraConfig(...)
+model = get_peft_model(model, config)
+
+training_args = TrainingArguments(
+    output_dir="./results",
+    evaluation_strategy="epoch",
+    learning_rate=2e-5,
+    per_device_train_batch_size=2,
+    num_train_epochs=3,
+)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset,
+)
+
+trainer.train()
+
+``` 
+❗ 遇到的问题
+
+    Attention Mask 和 Pad Token：
+        我在训练时遇到了警告：attention mask and the pad token id were not set。为了解决这个问题，我确保为输入设置了正确的 attention mask。
+
+    标签问题：
+        在微调过程中，最初我对是否需要标签感到困惑。通过查阅文档，我了解到在某些情况下，不需要明确的标签。对于聊天记录数据来说，问答对中的 "answer" 可以被视为隐式标签。
+        或者可以将目的作为标签。
+
+    模型输出：
+        在训练后，模型的输出有时会出现重复或不连贯的句子。通过调整模型参数和训练数据，可以进一步改善输出质量。
 ## 中文介绍 
 ## 🎨 项目背景与简介
 
