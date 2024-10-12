@@ -1,0 +1,15 @@
+User: Hey, how are you?
+Bot: I'm doing great! How about you?
+
+User: What¡¯s the weather like today?
+Bot: It¡¯s sunny with a slight chance of rain later.
+
+User: Do you like music?
+Bot: Yes, I love it! What about you?
+
+User: Can you help me with my homework?
+Bot: Sure, what do you need help with?
+
+User: What¡¯s your favorite movie?
+Bot: I enjoy a lot of movies, but 'Inception' is a top choice.
+

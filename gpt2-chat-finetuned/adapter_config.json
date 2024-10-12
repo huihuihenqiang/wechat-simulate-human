@@ -1,0 +1,32 @@
+{
+  "alpha_pattern": {},
+  "auto_mapping": {
+    "base_model_class": "GPT2LMHeadModel",
+    "parent_library": "transformers.models.gpt2.modeling_gpt2"
+  },
+  "base_model_name_or_path": "gpt2",
+  "bias": "none",
+  "fan_in_fan_out": true,
+  "inference_mode": true,
+  "init_lora_weights": true,
+  "layer_replication": null,
+  "layers_pattern": null,
+  "layers_to_transform": null,
+  "loftq_config": {},
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "megatron_config": null,
+  "megatron_core": "megatron.core",
+  "modules_to_save": null,
+  "peft_type": "LORA",
+  "r": 8,
+  "rank_pattern": {},
+  "revision": null,
+  "target_modules": [
+    "c_proj",
+    "c_attn"
+  ],
+  "task_type": null,
+  "use_dora": false,
+  "use_rslora": false
+}
