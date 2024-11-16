@@ -107,7 +107,7 @@ trainer.train()
 
 ![图片](https://github.com/huihuihenqiang/wechat-simulate-human/assets/99072450/1b91d75e-fafe-4b07-82de-1174e49d7e97)
 
-- 然后将本地的\channel\wechat_channel.py换成我们这个项目的wechat_channel.py
+- 然后将本地的\channel\wechat\wechat_channel.py换成我们这个项目的wechat_channel.py
 
 - 然后在本地的根目录下添加我们这个项目的.\resources\stickers\，，就完成了。如图：
 
