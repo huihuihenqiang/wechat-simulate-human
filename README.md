@@ -4,6 +4,8 @@ This is a chatgpt-on-wechat based project to make wechat replies more human-like
 ### 表情和表情包优化
 
 ### 效果评估
+#### 人工评估：流畅度、有无拼写错误、相关性等。
+#### 指标评估： BLEU最初为机器翻译任务设计，衡量生成文本与参考译文的精确匹配程度，查看准确性。ROUGE专为文本摘要任务设计，关注生成摘要与参考摘要的信息重叠度,完整性。
 
 
 ## 更新2024.10 
