@@ -1,5 +1,11 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
+## 更新2025.3
+### 表情和表情包优化
+
+### 效果评估
+
+
 ## 更新2024.10 
 使用多模式人工智能构建一个用于查询视频内容的交互式系统（MM-RAG）。创建一个复杂的问答系统，它可以处理、理解视频并与视频交互.流程如下：
 从视频中提取帧和转录(情况一：视频里面有字幕VTT)，使用Whisper模型生成转录（情况二：视频里面没有字幕但是有声音），并使用大视觉语言模型(LVLMs)创建字幕（视频里面只有画面）。
@@ -26,11 +32,14 @@ demo.launch(server_name="0.0.0.0", server_port=9999, debug=debug)
 ## 📊 数据准备
 
 首先，我们需要准备聊天记录数据。数据以**问答对**的形式组织，如下所示：
-
 ```json
 [
-  {"question": "你的名字是什么？", "answer": "我叫小助手。"},
-  {"question": "今天天气怎么样？", "answer": "今天阳光明媚。"}
+  {
+    "conversations": [
+      {"from": "user", "value": "今天天气如何？"},
+      {"from": "assistant", "value": "今天北京晴，气温20℃。"}
+    ]
+  }
 ]
 ```
 在训练之前，我们需要将原始数据进行 Tokenization（将文本转换为模型可理解的数字形式）。GPT 模型需要将每个句子分解为词汇或词片段，最终生成对应的 token ids 作为输入。
