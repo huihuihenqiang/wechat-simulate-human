@@ -1,6 +1,11 @@
 # wechat-simulate-human
 This is a chatgpt-on-wechat based project to make wechat replies more human-like
 ## 更新2025.3
+### RL(GRPO)Qwen2.5-0.5B-Instruct
+由于本人的女朋友数学成绩很差，所以想尝试使用强化学习训练开源大模型，增强大模型的数学解题能力，外加产生解题COT的能力。所以模仿deepseek-r1-zero训练方法，训练具有推理能力的大模型。
+作为一次小小的尝试，数据集选择：https://huggingface.co/datasets/swulling/gsm8k_chinese ,模型选择：Qwen2.5-0.5B-Instruct，框架使用的是:trl。模型上传至：
+
+效果：
 ### todo lists
 #### 表情和表情包优化
 将表情包表示成token,也加入到训练中。
