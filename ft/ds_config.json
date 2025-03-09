@@ -1,0 +1,21 @@
+{
+  "fp16": {
+    "enabled": true,
+    "loss_scale_window": 1000,
+    "hysteresis": 2
+
+  },
+  "zero_optimization": {
+    "stage": 2,
+    "allgather_partitions": true,
+    "reduce_scatter": true
+  },
+  "optimizer": {
+    "type": "AdamW",
+    "params": {
+      "lr": 1e-4,
+      "weight_decay": 0.01
+    }
+  },
+  "train_micro_batch_size_per_gpu": 1,
+  "gradient_accumulation_steps": 4 }
